@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="hero__item set-bg" data-setbg="{% static "images/banner1.jpg" %}" width="570">
+<div class="hero__text">
+<h2 class="primary-btn" >ucuzmall.com</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="from-blog spad"><div class="container">
+<div class="row">
+ <div class="col-lg-12">
+<div class="section-title from-blog__title">
+<h2></h2>
+</div>
+</div>
+ {% for post in posts %}
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="blog__item">
+<div class="blog__item__pic">
+<a href="{% url 'single' post.slug %}"><img src="{{ post.image.url }}" height="266" width="370" alt=""></a>
+ <a href="{% url 'single' post.slug %}" class="primary-btn">{{ post.price }} AZN</a>
+</div>
+<div class="blog__item__text">
+<ul><li><i class="fa fa-calendar-o"></i> Paylaşıldı: {{ post.created }}</li>
+
+</ul><h5><a href="{% url 'single' post.slug %}">{{ post.title }}</a></h5>
+<p>{{ post.content|truncatechars:20 }}</p>
+</div>
+</div>
+</div>
+ {% endfor %}
+</div>
+</div>
+</section>
+{% endblock %}

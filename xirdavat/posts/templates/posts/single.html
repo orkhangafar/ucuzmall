@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+</div>
+</div>
+</div>
+<section class="product-details spad">
+ <div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-6">
+<div class="product__details__pic">
+<div class="product__details__pic__item">
+<img class="product__details__pic__item--large" src="{{ single.image.url }}" alt=""></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6">
+<div class="product__details__text">
+<h3>{{ single.title }}</h3>
+<div class="product__details__price">Qiymət: {{ single.price }} AZN</div>
+<p>{{ single.content }}</p>
+<div class="product__details__quantity">
+<a href="#" class="primary-btn">Satıcı: {{ single.user.username }}</a>
+<a href="#" class="primary-btn">Tel: {{ single.phone }}</a>
+</div>
+</div>
+ <br>
+ {% if single.user == request.user %}
+<a href="{% url 'single' single.slug %}/delete" class="site-btn submit-order-btn" style="background:red">Sil</a>
+<br>
+<br>
+<a href="{% url 'single' single.slug %}/update" class="site-btn submit-order-btn" style="background:blue">Redaktə et</a>
+{% endif %}
+</div>
+</div>
+</div>
+</section>
+ {% endblock %}

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+ <meta charset="UTF-8">
+ <meta name="description" content="Ucuzmall.com | Məişət əşyaları">
+ <meta name="keywords" content="Ucuz, usaq besiy, creative, html">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ <title>Ucuzmall.com | Məişət əşyaları</title>
+
+ <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&amp;display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="{% static "css/css-bootstrap.min.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-font-awesome.min.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-elegant-icons.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-nice-select.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-jquery-ui.min.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-owl.carousel.min.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-slicknav.min.css" %}" type="text/css">
+ <link rel="stylesheet" href="{% static "css/css-style.css" %}" type="text/css">
+</head>
+<body>
+<header class="header"><div class="">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="header__logo">
+ <center><a href="/"><img src="{% static "images/img-logo.png" %}" alt=""></a></center>
+</div>
+</div>
+</div>
+</div>
+</header><section class="hero"><div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="hero__categories">
+<div class="hero__categories__all">
+<i class="fa fa-bars"></i>
+<span>Kateqoriyalar</span>
+</div>
+<ul>
+    {% for category in allCategories %}
+    <li><a href="{% url 'category-detail' category.slug %}">{{ category.title }} (<span>{{ category.postCount }}</span>)</a></li>
+    {% endfor %}
+</ul></div>
+</div>
+<div class="col-lg-9">
+<div class="hero__search">
+<div class="hero__search__form">
+<form action="{% url 'search' %}">
+<input type="text" name="q" placeholder="Nə axtarmaq istərdiniz?"><button type="submit" class="site-btn">AXTAR</button>
+</form>
+</div>
+<div class="hero__search__phone">
+<div class="hero__search__phone__icon">
+<i class="fa fa-phone"></i>
+</div>
+<div class="hero__search__phone__text">
+<h5>050 751 30 00</h5>
+<span>Elnur</span>
+</div>
+</div>
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+<footer class="footer spad"><div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="footer__about">
+<div class="footer__about__logo">
+<a href="index.html"><img src="{% static "images/img-logo.png" %}" alt=""></a>
+</div>
+<ul>
+ <li>Ünvan:<br> İmişli şəhəri. Mərkəzi bazar.Elçin şadlıq sarayının arxası</li>
+ <li>Tel: 050 751 30 00</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="footer__copyright">
+<div class="footer__copyright__text"><p>
+ <a><center>Copyright &copy; Bütün Hüquqlar Qorunur |</center></a>
+</p></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script src="{% static "js/5245959-js-jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "js/4359071-js-bootstrap.min.js" %}"></script>
+<script src="{% static "js/5019839-js-jquery.nice-select.min.js" %}"></script>
+<script src="{% static "js/8564854-js-jquery-ui.min.js" %}"></script>
+<script src="{% static "js/8175174-js-jquery.slicknav.js" %}"></script>
+<script src="{% static "js/2748648-js-mixitup.min.js" %}"></script>
+<script src="{% static "js/5765445-js-owl.carousel.min.js" %}"></script>
+<script src="{% static "js/1462161-js-main.js" %}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script defer src="{% static "js/beacon.min.js" %}" data-cf-beacon='{"rayId":"605289eb79725e80","version":"2020.12.2","si":10}'></script>
+</body>
+</html>

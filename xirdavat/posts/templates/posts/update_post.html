@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+            <!-- checkout section  -->
+	<section class="checkout-section spad">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6" style="border:2px solid #eee;padding:20px;background:#fff;">
+					<form method="post" class="checkout-form" enctype="multipart/form-data">
+						{% csrf_token %}
+						<h3 style="text-align:center;">Redaktə Et</h3>
+							{% crispy form %}
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- checkout section end -->
+
+{% endblock %}
